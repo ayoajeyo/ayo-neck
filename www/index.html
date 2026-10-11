@@ -5,44 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>아요거북목요</title>
 <style>
-  :root { --main:#2b7de9; --bg:#f5f8fc; --txt:#1c2733; --good:#2e9e5b; --warn:#e8930c; --bad:#e0574d; }
+  :root { --main:#e8734a; --bg:#fbf3e8; --txt:#43372e; --good:#4a9d6b; --warn:#d98a1f; --bad:#d9534a; }
   * { box-sizing:border-box; margin:0; font-family:'Segoe UI','Apple SD Gothic Neo',sans-serif; }
   body { background:var(--bg); color:var(--txt); min-height:100vh; display:flex; flex-direction:column; }
   header { padding:40px 20px 20px; text-align:center; }
   header h1 { font-size:1.5rem; color:var(--main); }
-  header p { margin-top:6px; font-size:.85rem; color:#5a6b7d; }
+  header p { margin-top:6px; font-size:.85rem; color:#8c7b63; }
   main { flex:1; padding:0 16px 16px; display:flex; flex-direction:column; gap:12px; max-width:440px; width:100%; margin:0 auto; }
   section[hidden] { display:none; }
   section { display:flex; flex-direction:column; gap:12px; }
-  button.menu, button.act { padding:18px; border:none; border-radius:14px; background:#fff; font-size:1rem; text-align:left;
-    box-shadow:0 2px 8px rgba(0,0,0,.06); cursor:pointer; color:var(--txt); }
+  button.menu, button.act { padding:18px; border:none; border-radius:14px; background:#fffdf8; font-size:1rem; text-align:left;
+    box-shadow:0 2px 8px rgba(146,100,60,.1); cursor:pointer; color:var(--txt); }
   button.menu b { color:var(--main); }
   button.act { background:var(--main); color:#fff; text-align:center; font-weight:700; }
-  button.act:disabled { background:#b9c6d6; }
-  button.back { align-self:flex-start; border:none; background:none; color:#5a6b7d; font-size:.9rem; padding:6px 2px; cursor:pointer; }
-  .card { background:#fff; border-radius:14px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+  button.act:disabled { background:#dcccb4; }
+  button.back { align-self:flex-start; border:none; background:none; color:#8c7b63; font-size:.9rem; padding:6px 2px; cursor:pointer; }
+  .card { background:#fffdf8; border-radius:14px; padding:16px; box-shadow:0 2px 8px rgba(146,100,60,.1); }
   .card h2 { font-size:1.05rem; margin-bottom:8px; }
-  .card small { color:#5a6b7d; line-height:1.5; display:block; }
+  .card small { color:#8c7b63; line-height:1.5; display:block; }
   #cvWrap { position:relative; border-radius:14px; overflow:hidden; background:#17212b; touch-action:none; }
   #cv { width:100%; display:block; }
   #result { text-align:center; }
   #result .deg { font-size:2.2rem; font-weight:800; }
   #result .grade { font-weight:700; margin-top:2px; }
-  #hint { font-size:.8rem; color:#5a6b7d; text-align:center; }
+  #hint { font-size:.8rem; color:#8c7b63; text-align:center; }
   ul#recList { list-style:none; display:flex; flex-direction:column; gap:8px; }
-  ul#recList li { background:#fff; border-radius:12px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;
-    box-shadow:0 2px 6px rgba(0,0,0,.05); font-size:.95rem; }
+  ul#recList li { background:#fffdf8; border-radius:12px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 2px 6px rgba(146,100,60,.08); font-size:.95rem; }
   ul#recList li button { border:none; background:none; color:#b0392f; cursor:pointer; font-size:.85rem; }
-  #chart { width:100%; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
-  footer { padding:14px; text-align:center; font-size:.72rem; color:#8a99a8; }
+  #chart { width:100%; background:#fffdf8; border-radius:14px; box-shadow:0 2px 8px rgba(146,100,60,.1); }
+  footer { padding:14px; text-align:center; font-size:.72rem; color:#b3a48c; }
   #adSlot { height:60px; } /* AdMob 배너 자리 */
   .g-good { color:var(--good); } .g-warn { color:var(--warn); } .g-bad { color:var(--bad); }
 </style>
 </head>
 <body>
 <header>
-  <h1>아요거북목요</h1>
-  <p>AYO Turtle Neck Scanner · 카메라로 간단하게 거북목 측정</p>
+  <h1>🐢 아요거북목요</h1>
+  <p>AYO Turtle Neck Scanner · 오늘도 목 건강 챙겨요</p>
 </header>
 <main>
 
@@ -56,18 +56,22 @@
   <button class="back" data-go="vHome">← 홈으로</button>
   <div class="card">
     <h2>옆모습 사진 찍기</h2>
-    <small>몸의 <b>정확한 옆쪽</b>에서, 목 높이로 찍어 주세요. 편안하게 서서 정면을 바라본 자세로요
-    (턱을 당기거나 들지 말고, 다른 사람에게 부탁하거나 타이머로 촬영).</small>
+    <small>몸의 <b>정확한 옆쪽</b>에서, <b>C7(목 뒤에 가장 튀어나온 뼈) 높이</b>로 찍어 주세요.
+    편안하게 서서 <b>정면의 눈높이</b>를 바라보고 — 일부러 턱을 당기거나 들지 말고,
+    목을 가볍게 움직였다가 자연스럽게 둔 자세가 좋아요.
+    다른 사람에게 부탁하거나 타이머 촬영을 이용하세요.
+    같은 장소·거리·복장으로 찍어야 지난 기록과 비교가 정확해요.</small>
   </div>
   <input id="photoCam" type="file" accept="image/*" capture="environment" hidden>
   <input id="photo" type="file" accept="image/*" hidden>
   <button class="act" id="btnCam">📷 촬영하기</button>
-  <button class="act" id="btnPick" style="background:#fff;color:var(--main);border:2px solid var(--main)">🖼 앨범에서 선택</button>
+  <button class="act" id="btnPick" style="background:#fffdf8;color:var(--main);border:2px solid var(--main)">🖼 앨범에서 선택</button>
   <div id="cvWrap" hidden><canvas id="cv"></canvas></div>
   <p id="hint" hidden>점이 어긋났으면 <b>흰 점을 손가락으로 끌어서</b> C7(목 뒤 튀어나온 뼈)과 귀 이주(귓구멍 앞 연골)에 맞춰 주세요.</p>
   <div class="card" id="result" hidden>
     <div class="deg" id="deg">--°</div>
     <div class="grade" id="grade"></div>
+    <div id="delta" style="font-size:.88rem;margin-top:4px"></div>
     <small>기준: 55° 이상 정상 · 50° 미만 거북목 · 45° 미만 심함 (스크리닝 참고값이며 진단이 아닙니다)</small>
   </div>
   <button class="act" id="btnSave" hidden>이 결과 저장</button>
@@ -77,12 +81,12 @@
   <button class="back" data-go="vHome">← 홈으로</button>
   <canvas id="chart" height="180"></canvas>
   <ul id="recList"></ul>
-  <p id="hint2" style="font-size:.8rem;color:#5a6b7d;text-align:center">아직 기록이 없어요. 먼저 측정해 보세요!</p>
+  <p id="hint2" style="font-size:.8rem;color:#8c7b63;text-align:center">아직 기록이 없어요. 먼저 측정해 보세요!</p>
 </section>
 
 </main>
 <div id="adSlot"></div>
-<footer>v4 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
+<footer>v5 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
 
 <script type="module">
 /* ===== 화면 전환 ===== */
@@ -196,10 +200,33 @@ function draw(){
 }
 function update(){
   draw();
+  if(dragKey) drawMag(pts[dragKey]);
   const d = cvaDeg(pts.c7, pts.tragus), gr = gradeOf(d);
   $("result").hidden = false; $("btnSave").hidden = false;
   $("deg").textContent = d + "°"; $("deg").className = "deg " + gr.c;
   $("grade").textContent = gr.t; $("grade").className = "grade " + gr.c;
+  // 지난 측정과 비교 (CVA는 클수록 좋음 — 아요바디요 판정 기준과 동일)
+  const recs = load(), prev = recs[recs.length - 1], el = $("delta");
+  if(!prev){ el.textContent = "첫 측정이에요! 꾸준히 기록해 보세요 🌱"; el.className = ""; }
+  else {
+    const diff = Math.round((d - prev.cva) * 10) / 10;
+    if(diff > 0){ el.textContent = "지난 측정보다 " + diff + "° 좋아졌어요 💪"; el.className = "g-good"; }
+    else if(diff < 0){ el.textContent = "지난 측정보다 " + Math.abs(diff) + "° 내려갔어요 — 스트레칭 해볼까요?"; el.className = "g-warn"; }
+    else { el.textContent = "지난 측정과 같아요"; el.className = ""; }
+  }
+}
+// 보정 돋보기: 점을 끌 때 손가락 위에 2.2배 확대경 표시 (아요바디요의 점 보정 참고)
+function drawMag(p){
+  const u = cv.width / 400, z = 2.2, R = 54 * u, k = img.width / cv.width;
+  const mx = Math.max(R, Math.min(cv.width - R, p.x)), my = Math.max(R + 6*u, p.y - R - 46*u);
+  g.save(); g.beginPath(); g.arc(mx, my, R, 0, Math.PI*2); g.clip();
+  g.drawImage(img, (p.x - R/z) * k, (p.y - R/z) * k, (2*R/z) * k, (2*R/z) * k, mx - R, my - R, 2*R, 2*R);
+  g.restore();
+  g.strokeStyle = "#e8734a"; g.lineWidth = 3*u;
+  g.beginPath(); g.arc(mx, my, R, 0, Math.PI*2); g.stroke();
+  g.lineWidth = 1.5*u;
+  g.beginPath(); g.moveTo(mx - 12*u, my); g.lineTo(mx + 12*u, my);
+  g.moveTo(mx, my - 12*u); g.lineTo(mx, my + 12*u); g.stroke();
 }
 // 점 드래그 (터치·마우스)
 let dragKey = null;
@@ -210,7 +237,7 @@ function down(e){ if(!pts) return; const p = evPos(e), rad = cv.width * 0.06;
   if(dragKey) e.preventDefault(); }
 function move(e){ if(!dragKey) return; e.preventDefault(); pts[dragKey] = evPos(e); update(); }
 cv.addEventListener("pointerdown", down); cv.addEventListener("pointermove", move);
-addEventListener("pointerup", () => dragKey = null);
+addEventListener("pointerup", () => { if(dragKey){ dragKey = null; if(pts) update(); } });
 
 /* ===== 기록 (이 기기에만 저장) ===== */
 const KEY = "ayoNeck_records";
@@ -249,10 +276,10 @@ function drawChart(recs){
   });
   if(!recs.length) return;
   const X = i => recs.length === 1 ? W/2 : 20*u + i * (W - 40*u) / (recs.length - 1);
-  x.strokeStyle = "#2b7de9"; x.lineWidth = 2.5*u; x.beginPath();
+  x.strokeStyle = "#e8734a"; x.lineWidth = 2.5*u; x.beginPath();
   recs.forEach((r,i) => i ? x.lineTo(X(i), Y(r.cva)) : x.moveTo(X(i), Y(r.cva))); x.stroke();
-  recs.forEach((r,i) => { x.fillStyle = "#2b7de9"; x.beginPath(); x.arc(X(i), Y(r.cva), 4*u, 0, Math.PI*2); x.fill();
-    x.fillStyle = "#1c2733"; x.font = "700 " + (11*u) + "px sans-serif"; x.fillText(r.cva + "°", X(i) - 10*u, Y(r.cva) - 8*u); });
+  recs.forEach((r,i) => { x.fillStyle = "#e8734a"; x.beginPath(); x.arc(X(i), Y(r.cva), 4*u, 0, Math.PI*2); x.fill();
+    x.fillStyle = "#43372e"; x.font = "700 " + (11*u) + "px sans-serif"; x.fillText(r.cva + "°", X(i) - 10*u, Y(r.cva) - 8*u); });
 }
 </script>
 </body>
