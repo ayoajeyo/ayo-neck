@@ -86,7 +86,7 @@
 
 </main>
 <div id="adSlot"></div>
-<footer>v5 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
+<footer>v6 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
 
 <script type="module">
 /* ===== 화면 전환 ===== */
@@ -164,7 +164,24 @@ async function onPhoto(e){
     alert("자세를 자동으로 찾지 못했어요. 흰 점 2개를 직접 맞춰 주세요.");
   }
   update();
+  if(cvaDeg(pts.c7, pts.tragus) < 55) beepThenSay(); // 정상(55°) 벗어나면 음성 안내 (사진당 1번)
   e.target.value = ""; // 같은 사진 다시 선택해도 동작하게
+}
+// 삐삑(경고음 2번) + "거북목 당첨입니다" (휴대폰 내장 한국어 음성)
+function beepThenSay(){
+  try{
+    const ac = new (window.AudioContext || window.webkitAudioContext)();
+    const beep = (t, f) => { const o = ac.createOscillator(), gn = ac.createGain();
+      o.type = "square"; o.frequency.value = f; o.connect(gn); gn.connect(ac.destination);
+      gn.gain.setValueAtTime(.25, t); gn.gain.exponentialRampToValueAtTime(.001, t + .14);
+      o.start(t); o.stop(t + .15); };
+    beep(ac.currentTime, 880); beep(ac.currentTime + .18, 1175);
+  }catch(e){}
+  try{
+    const u = new SpeechSynthesisUtterance("거북목 당첨입니다");
+    u.lang = "ko-KR";
+    setTimeout(() => speechSynthesis.speak(u), 450);
+  }catch(e){}
 }
 
 function draw(){
