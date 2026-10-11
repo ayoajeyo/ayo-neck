@@ -21,11 +21,13 @@
 - 웹 미리보기: `npm run serve` (포트 8766)
 
 ## 남은 일 (플랜 순서)
-1. [ ] 아요: Apple Developer 가입 (연 $99) / AdMob 가입
-2. [ ] GitHub 저장소 생성 + 푸시
-3. [ ] CVA 측정 기능 이식 (카메라 → MediaPipe → 각도 → 점수/등급)
-4. [ ] 로컬 기록 저장 + 변화 그래프
-5. [ ] 스트레칭 리마인더 (로컬 알림, @capacitor/local-notifications)
+1. [ ] 아요: Apple Developer 가입 (연 $99, 미룸) / AdMob 가입
+2. [ ] GitHub 저장소 생성 + 푸시 — **아요가 공개/비공개 결정 필요** (클로드가 직접 생성은 보안정책상 차단됨).
+       공개면 iOS용 macOS Actions 무료 무제한, 비공개면 월 약 200분 제한.
+       생성 후: `git remote add origin <주소>` → `git push -u origin main` → Actions가 APK 자동 빌드
+3. [x] CVA 측정 기능 이식 (v2: 사진 → MediaPipe 자동 인식 → 점 2개 수동 보정 → 각도·등급)
+4. [x] 로컬 기록 저장 + 변화 그래프 (localStorage, 브라우저에서 동작 확인함)
+5. [ ] 스트레칭 리마인더 (로컬 알림, @capacitor/local-notifications — 실기기 테스트 가능해진 뒤에)
 6. [ ] AdMob 연동 (@capacitor-community/admob) + iOS ATT 팝업
 7. [ ] 개인정보처리방침(광고 SDK 수집 고지) + app-ads.txt — GitHub Pages에 게시
 8. [ ] Play 내부 테스트 → TestFlight → 심사 제출
