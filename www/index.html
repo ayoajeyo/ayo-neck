@@ -59,8 +59,10 @@
     <small>몸의 <b>정확한 옆쪽</b>에서, 목 높이로 찍어 주세요. 편안하게 서서 정면을 바라본 자세로요
     (턱을 당기거나 들지 말고, 다른 사람에게 부탁하거나 타이머로 촬영).</small>
   </div>
+  <input id="photoCam" type="file" accept="image/*" capture="environment" hidden>
   <input id="photo" type="file" accept="image/*" hidden>
-  <button class="act" id="btnPick">사진 선택 / 촬영</button>
+  <button class="act" id="btnCam">📷 촬영하기</button>
+  <button class="act" id="btnPick" style="background:#fff;color:var(--main);border:2px solid var(--main)">🖼 앨범에서 선택</button>
   <div id="cvWrap" hidden><canvas id="cv"></canvas></div>
   <p id="hint" hidden>점이 어긋났으면 <b>흰 점을 손가락으로 끌어서</b> C7(목 뒤 튀어나온 뼈)과 귀 이주(귓구멍 앞 연골)에 맞춰 주세요.</p>
   <div class="card" id="result" hidden>
@@ -80,7 +82,7 @@
 
 </main>
 <div id="adSlot"></div>
-<footer>v2 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
+<footer>v4 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
 
 <script type="module">
 /* ===== 화면 전환 ===== */
@@ -138,14 +140,16 @@ function derivePoints(lm, w, h){
 /* ===== 측정 화면 ===== */
 const cv = $("cv"), g = cv.getContext("2d");
 let img = null, pts = null; // pts = { c7, tragus } (캔버스 좌표)
+$("btnCam").addEventListener("click", () => $("photoCam").click());
 $("btnPick").addEventListener("click", () => $("photo").click());
-$("photo").addEventListener("change", async e => {
+$("photoCam").addEventListener("change", onPhoto);
+$("photo").addEventListener("change", onPhoto);
+async function onPhoto(e){
   const f = e.target.files[0]; if(!f) return;
   img = await createImageBitmap(f);
   const maxW = 1280, sc = Math.min(1, maxW / img.width);
   cv.width = Math.round(img.width * sc); cv.height = Math.round(img.height * sc);
   $("cvWrap").hidden = false; $("hint").hidden = false;
-  $("btnPick").textContent = "다른 사진 선택";
   pts = null; draw(); // 먼저 사진만 표시
   const lk = await getLandmarker();
   let lm = null;
@@ -156,7 +160,8 @@ $("photo").addEventListener("change", async e => {
     alert("자세를 자동으로 찾지 못했어요. 흰 점 2개를 직접 맞춰 주세요.");
   }
   update();
-});
+  e.target.value = ""; // 같은 사진 다시 선택해도 동작하게
+}
 
 function draw(){
   if(!img) return;
