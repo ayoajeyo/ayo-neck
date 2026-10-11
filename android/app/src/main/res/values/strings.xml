@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">아요거북목요</string>
+    <string name="title_activity_main">아요거북목요</string>
+    <string name="package_name">com.physiomaster.ayoneck</string>
+    <string name="custom_url_scheme">com.physiomaster.ayoneck</string>
+</resources>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아요거북목요</title>
+<style>
+  :root { --main:#2b7de9; --bg:#f5f8fc; --txt:#1c2733; }
+  * { box-sizing:border-box; margin:0; font-family:'Segoe UI','Apple SD Gothic Neo',sans-serif; }
+  body { background:var(--bg); color:var(--txt); min-height:100vh; display:flex; flex-direction:column; }
+  header { padding:48px 20px 24px; text-align:center; }
+  header h1 { font-size:1.6rem; color:var(--main); }
+  header p { margin-top:8px; font-size:.9rem; color:#5a6b7d; }
+  main { flex:1; padding:0 20px; display:flex; flex-direction:column; gap:14px; max-width:420px; width:100%; margin:0 auto; }
+  button.menu { padding:20px; border:none; border-radius:14px; background:#fff; font-size:1.05rem; text-align:left;
+    box-shadow:0 2px 8px rgba(0,0,0,.06); cursor:pointer; }
+  button.menu b { color:var(--main); }
+  footer { padding:16px; text-align:center; font-size:.75rem; color:#8a99a8; }
+  /* 광고 배너 자리 (AdMob 연동 시 하단 고정) */
+  #adSlot { height:60px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>아요거북목요</h1>
+  <p>AYO Turtle Neck Scanner · 카메라로 간단하게 거북목 측정</p>
+</header>
+<main>
+  <button class="menu" id="btnMeasure"><b>📷 거북목 측정</b><br><small>측면 카메라로 CVA 각도 측정</small></button>
+  <button class="menu" id="btnHistory"><b>📈 내 기록</b><br><small>측정 기록과 변화 그래프</small></button>
+  <button class="menu" id="btnRemind"><b>⏰ 스트레칭 알림</b><br><small>자세 교정 리마인더 설정</small></button>
+</main>
+<div id="adSlot"></div>
+<footer>v1 · 기록은 이 기기에만 저장됩니다</footer>
+<script>
+  // 뼈대 단계: 메뉴는 자리만 잡아둠. 측정 기능은 posture-check의 CVA 코드 이식 예정.
+  for (const id of ["btnMeasure","btnHistory","btnRemind"])
+    document.getElementById(id).addEventListener("click", () => alert("준비 중입니다"));
+</script>
+</body>
+</html>
