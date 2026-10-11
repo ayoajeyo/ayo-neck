@@ -5,51 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>아요거북목요</title>
 <style>
-  :root { --main:#e8734a; --bg:#fbf3e8; --txt:#43372e; --good:#4a9d6b; --warn:#d98a1f; --bad:#d9534a; }
+  :root { --main:#5b9bd9; --mainsoft:#ddecfa; --bg:#eaf3fb; --txt:#35506b; --good:#4a9d6b; --warn:#d98a1f; --bad:#d9534a; }
   * { box-sizing:border-box; margin:0; font-family:'Segoe UI','Apple SD Gothic Neo',sans-serif; }
-  body { background:var(--bg); color:var(--txt); min-height:100vh; display:flex; flex-direction:column; }
-  header { padding:40px 20px 20px; text-align:center; }
-  header h1 { font-size:1.5rem; color:var(--main); }
-  header p { margin-top:6px; font-size:.85rem; color:#8c7b63; }
+  body { background:linear-gradient(175deg,#f4f9fe 0%,var(--bg) 40%,#dcebf8 100%); color:var(--txt); min-height:100vh; display:flex; flex-direction:column; }
+  header { padding:34px 20px 18px; text-align:center; }
+  .turtle { font-size:3.2rem; line-height:1; filter:drop-shadow(0 4px 6px rgba(91,155,217,.3)); }
+  header h1 { font-size:1.5rem; color:#4a8bd0; margin-top:8px; letter-spacing:.02em; }
+  header p { margin-top:6px; font-size:.85rem; color:#7d99b5; }
   main { flex:1; padding:0 16px 16px; display:flex; flex-direction:column; gap:12px; max-width:440px; width:100%; margin:0 auto; }
   section[hidden] { display:none; }
   section { display:flex; flex-direction:column; gap:12px; }
-  button.menu, button.act { padding:18px; border:none; border-radius:14px; background:#fffdf8; font-size:1rem; text-align:left;
-    box-shadow:0 2px 8px rgba(146,100,60,.1); cursor:pointer; color:var(--txt); }
-  button.menu b { color:var(--main); }
-  button.act { background:var(--main); color:#fff; text-align:center; font-weight:700; }
-  button.act:disabled { background:#dcccb4; }
-  button.back { align-self:flex-start; border:none; background:none; color:#8c7b63; font-size:.9rem; padding:6px 2px; cursor:pointer; }
-  .card { background:#fffdf8; border-radius:14px; padding:16px; box-shadow:0 2px 8px rgba(146,100,60,.1); }
+  button.menu, button.act { padding:16px 18px; border:none; border-radius:22px; background:#fff; font-size:1rem; text-align:left;
+    box-shadow:0 3px 12px rgba(91,155,217,.18); cursor:pointer; color:var(--txt); transition:transform .1s; }
+  button.menu { display:flex; align-items:center; gap:14px; }
+  button.menu:active, button.act:active { transform:scale(.97); }
+  button.menu .ico { flex:none; width:54px; height:54px; border-radius:18px; background:var(--mainsoft);
+    display:flex; align-items:center; justify-content:center; font-size:1.7rem; }
+  button.menu b { color:#4a8bd0; font-size:1.05rem; }
+  button.act { background:var(--main); color:#fff; text-align:center; font-weight:700; border-radius:999px; }
+  button.act:disabled { background:#b9cfe6; }
+  button.back { align-self:flex-start; border:none; background:none; color:#7d99b5; font-size:.9rem; padding:6px 2px; cursor:pointer; }
+  .card { background:#fff; border-radius:20px; padding:16px; box-shadow:0 3px 12px rgba(91,155,217,.15); }
   .card h2 { font-size:1.05rem; margin-bottom:8px; }
-  .card small { color:#8c7b63; line-height:1.5; display:block; }
-  #cvWrap { position:relative; border-radius:14px; overflow:hidden; background:#17212b; touch-action:none; }
+  .card small { color:#7d99b5; line-height:1.5; display:block; }
+  #cvWrap { position:relative; border-radius:20px; overflow:hidden; background:#17212b; touch-action:none; }
   #cv { width:100%; display:block; }
   #result { text-align:center; }
   #result .deg { font-size:2.2rem; font-weight:800; }
   #result .grade { font-weight:700; margin-top:2px; }
-  #hint { font-size:.8rem; color:#8c7b63; text-align:center; }
+  #hint { font-size:.8rem; color:#7d99b5; text-align:center; }
   ul#recList { list-style:none; display:flex; flex-direction:column; gap:8px; }
-  ul#recList li { background:#fffdf8; border-radius:12px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;
-    box-shadow:0 2px 6px rgba(146,100,60,.08); font-size:.95rem; }
+  ul#recList li { background:#fff; border-radius:16px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 2px 8px rgba(91,155,217,.12); font-size:.95rem; }
   ul#recList li button { border:none; background:none; color:#b0392f; cursor:pointer; font-size:.85rem; }
   #chart { width:100%; background:#fffdf8; border-radius:14px; box-shadow:0 2px 8px rgba(146,100,60,.1); }
-  footer { padding:14px; text-align:center; font-size:.72rem; color:#b3a48c; }
+  footer { padding:14px; text-align:center; font-size:.72rem; color:#9fb6cc; }
   #adSlot { height:60px; } /* AdMob 배너 자리 */
   .g-good { color:var(--good); } .g-warn { color:var(--warn); } .g-bad { color:var(--bad); }
 </style>
 </head>
 <body>
 <header>
-  <h1>🐢 아요거북목요</h1>
-  <p>AYO Turtle Neck Scanner · 오늘도 목 건강 챙겨요</p>
+  <div class="turtle">🐢</div>
+  <h1>아요거북목요</h1>
+  <p>AYO Turtle Neck Scanner · 오늘도 목 건강 지켜요!</p>
 </header>
 <main>
 
 <section id="vHome">
-  <button class="menu" data-go="vMeasure"><b>📷 거북목 측정</b><br><small>옆모습 사진으로 CVA 각도 측정</small></button>
-  <button class="menu" data-go="vHistory"><b>📈 내 기록</b><br><small>측정 기록과 변화 그래프</small></button>
-  <button class="menu" id="btnRemind"><b>⏰ 스트레칭 알림</b><br><small>자세 교정 리마인더 설정</small></button>
+  <button class="menu" data-go="vMeasure"><span class="ico">📷</span><span><b>거북목 측정</b><br><small>옆모습 사진 한 장이면 끝!</small></span></button>
+  <button class="menu" data-go="vHistory"><span class="ico">📊</span><span><b>내 기록</b><br><small>얼마나 좋아졌는지 그래프로 쏙</small></span></button>
+  <button class="menu" id="btnRemind"><span class="ico">⏰</span><span><b>스트레칭 알림</b><br><small>목이 굳기 전에 콕 찔러드려요</small></span></button>
 </section>
 
 <section id="vMeasure" hidden>
@@ -81,12 +87,12 @@
   <button class="back" data-go="vHome">← 홈으로</button>
   <canvas id="chart" height="180"></canvas>
   <ul id="recList"></ul>
-  <p id="hint2" style="font-size:.8rem;color:#8c7b63;text-align:center">아직 기록이 없어요. 먼저 측정해 보세요!</p>
+  <p id="hint2" style="font-size:.8rem;color:#7d99b5;text-align:center">아직 기록이 없어요. 먼저 측정해 보세요!</p>
 </section>
 
 </main>
 <div id="adSlot"></div>
-<footer>v6 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
+<footer>v7 · 기록은 이 기기에만 저장됩니다 · 의료 진단을 대신하지 않아요</footer>
 
 <script type="module">
 /* ===== 화면 전환 ===== */
@@ -239,7 +245,7 @@ function drawMag(p){
   g.save(); g.beginPath(); g.arc(mx, my, R, 0, Math.PI*2); g.clip();
   g.drawImage(img, (p.x - R/z) * k, (p.y - R/z) * k, (2*R/z) * k, (2*R/z) * k, mx - R, my - R, 2*R, 2*R);
   g.restore();
-  g.strokeStyle = "#e8734a"; g.lineWidth = 3*u;
+  g.strokeStyle = "#5b9bd9"; g.lineWidth = 3*u;
   g.beginPath(); g.arc(mx, my, R, 0, Math.PI*2); g.stroke();
   g.lineWidth = 1.5*u;
   g.beginPath(); g.moveTo(mx - 12*u, my); g.lineTo(mx + 12*u, my);
@@ -293,10 +299,10 @@ function drawChart(recs){
   });
   if(!recs.length) return;
   const X = i => recs.length === 1 ? W/2 : 20*u + i * (W - 40*u) / (recs.length - 1);
-  x.strokeStyle = "#e8734a"; x.lineWidth = 2.5*u; x.beginPath();
+  x.strokeStyle = "#5b9bd9"; x.lineWidth = 2.5*u; x.beginPath();
   recs.forEach((r,i) => i ? x.lineTo(X(i), Y(r.cva)) : x.moveTo(X(i), Y(r.cva))); x.stroke();
-  recs.forEach((r,i) => { x.fillStyle = "#e8734a"; x.beginPath(); x.arc(X(i), Y(r.cva), 4*u, 0, Math.PI*2); x.fill();
-    x.fillStyle = "#43372e"; x.font = "700 " + (11*u) + "px sans-serif"; x.fillText(r.cva + "°", X(i) - 10*u, Y(r.cva) - 8*u); });
+  recs.forEach((r,i) => { x.fillStyle = "#5b9bd9"; x.beginPath(); x.arc(X(i), Y(r.cva), 4*u, 0, Math.PI*2); x.fill();
+    x.fillStyle = "#35506b"; x.font = "700 " + (11*u) + "px sans-serif"; x.fillText(r.cva + "°", X(i) - 10*u, Y(r.cva) - 8*u); });
 }
 </script>
 </body>
